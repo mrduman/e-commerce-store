@@ -24,7 +24,7 @@ export const ProductsProvider = ({ children }) => {
     featured_products: [],
     single_product_loading: false,
     single_product_error: false,
-    single_products: [],
+    single_product: [],
   };
   const [state, dispatch] = useReducer(reducer, initialState);
 
@@ -52,7 +52,7 @@ export const ProductsProvider = ({ children }) => {
     try {
       const response = await axios.get(url);
       const singleProduct = response.data;
-      dispatch({ type: GET_PRODUCTS_SUCCESS, payload: singleProduct });
+      dispatch({ type: GET_SINGLE_PRODUCT_SUCCESS, payload: singleProduct });
     } catch (error) {
       dispatch({ type: GET_SINGLE_PRODUCT_ERROR });
     }
@@ -60,11 +60,12 @@ export const ProductsProvider = ({ children }) => {
 
   useEffect(() => {
     fetchData(url);
-    fetchSingleProduct(products_url);
   }, []);
 
   return (
-    <ProductsContext.Provider value={{ ...state, openSidebar, closeSidebar }}>
+    <ProductsContext.Provider
+      value={{ ...state, openSidebar, closeSidebar, fetchSingleProduct }}
+    >
       {children}
     </ProductsContext.Provider>
   );
