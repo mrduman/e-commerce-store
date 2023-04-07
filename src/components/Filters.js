@@ -92,6 +92,7 @@ const Filters = () => {
                       onClick={updateFilters}
                       name="color"
                       data-color="all"
+                      key={index}
                     >
                       all
                     </button>
