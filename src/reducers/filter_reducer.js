@@ -82,7 +82,6 @@ const filter_reducer = (state, action) => {
     }
     if (color !== "all") {
       tempProducts = tempProducts.filter((product) => {
-        console.log("fdfd", product.colors);
         return product.colors.find((c) => c === color);
       });
     }
