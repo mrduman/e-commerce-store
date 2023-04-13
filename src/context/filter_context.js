@@ -33,28 +33,27 @@ const FilterContext = React.createContext();
 
 export const FilterProvider = ({ children }) => {
   const { products } = useProductsContext();
-  const [state, dispacth] = useReducer(reducer, initialState);
-
+  const [state, dispatch] = useReducer(reducer, initialState);
   useEffect(() => {
-    dispacth({ type: LOAD_PRODUCTS, payload: products });
+    dispatch({ type: LOAD_PRODUCTS, payload: products });
   }, [products]);
 
   useEffect(() => {
-    dispacth({ type: FILTER_PRODUCTS });
-    dispacth({ type: SORT_PRODUCTS });
+    dispatch({ type: FILTER_PRODUCTS });
+    dispatch({ type: SORT_PRODUCTS });
   }, [products, state.sort, state.filters]);
 
   const setGridView = () => {
-    dispacth({ type: SET_GRIDVIEW });
+    dispatch({ type: SET_GRIDVIEW });
   };
 
   const setListView = () => {
-    dispacth({ type: SET_LISTVIEW });
+    dispatch({ type: SET_LISTVIEW });
   };
 
   const updateSort = (e) => {
     const value = e.target.value;
-    dispacth({ type: UPDATE_SORT, payload: value });
+    dispatch({ type: UPDATE_SORT, payload: value });
   };
 
   const updateFilters = (e) => {
@@ -72,10 +71,10 @@ export const FilterProvider = ({ children }) => {
     if (name === "shipping") {
       value = e.target.checked;
     }
-    dispacth({ type: UPDATE_FILTERS, payload: { name, value } });
+    dispatch({ type: UPDATE_FILTERS, payload: { name, value } });
   };
   const clearFilters = () => {
-    dispacth({ type: CLEAR_FILTERS });
+    dispatch({ type: CLEAR_FILTERS });
   };
   return (
     <FilterContext.Provider
