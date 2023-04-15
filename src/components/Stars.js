@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import { BsStarFill, BsStarHalf, BsStar } from "react-icons/bs";
+// eslint-disable-next-line no-unused-vars
+
 const Stars = ({ stars, reviews }) => {
   const tempStars = Array.from({ length: 5 }, (_, index) => {
     const number = index + 0.5;

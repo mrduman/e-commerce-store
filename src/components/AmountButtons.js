@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { FaPlus, FaMinus } from "react-icons/fa";
+// eslint-disable-next-line no-unused-vars
 
 const AmountButtons = ({ amount, increase, decrease }) => {
   return (
