@@ -7,7 +7,6 @@ import CartPage from "./CartPage";
 import ErrorPage from "./ErrorPage";
 import PrivateRoute from "./PrivateRoute";
 import SingleProductPage from "./SingleProductPage";
-
 export {
   Home,
   ProductsPage,
